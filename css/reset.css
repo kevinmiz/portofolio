@@ -1,0 +1,75 @@
+/*
+  reset.css
+  =========
+  PURPOSE: Normalizes browser default styles so the site looks
+  consistent across Chrome, Firefox, Safari, etc.
+
+  WHY IT EXISTS: Browsers ship with different default margins,
+  font sizes, and box-sizing rules. Without a reset, the same HTML
+  can look subtly different per browser. This file removes those
+  inconsistencies BEFORE main.css adds any intentional styling.
+
+  HOW TO MODIFY: You should rarely need to touch this file. If you
+  do, keep changes here general/browser-normalization only — actual
+  design decisions belong in main.css.
+*/
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  min-height: 100vh;
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, picture, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* Keyboard accessibility: always show a visible focus ring */
+:focus-visible {
+  outline: 2px solid var(--color-progress);
+  outline-offset: 2px;
+}

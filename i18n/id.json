@@ -1,0 +1,93 @@
+{
+  "nav": {
+    "about": "Tentang",
+    "experience": "Pengalaman",
+    "skills": "Keahlian",
+    "portfolio": "Portofolio QA",
+    "projects": "Proyek",
+    "certificates": "Sertifikat",
+    "learning": "Perjalanan Belajar",
+    "resume": "Resume",
+    "contact": "Kontak"
+  },
+  "hero": {
+    "eyebrow": "Saat ini terbuka untuk peluang baru",
+    "ctaPrimary": "Lihat Portofolio QA",
+    "ctaSecondary": "Unduh Resume",
+    "panelTitle": "test-run — kevin.qa",
+    "panelFooter": "4 lolos, 0 gagal"
+  },
+  "about": {
+    "eyebrow": "Tentang",
+    "title": "Bagaimana saya mendekati kualitas"
+  },
+  "experience": {
+    "eyebrow": "Pengalaman",
+    "title": "Tempat saya pernah bekerja",
+    "currentBadge": "Saat ini"
+  },
+  "skills": {
+    "eyebrow": "Keahlian",
+    "title": "Yang saya kuasai"
+  },
+  "portfolio": {
+    "eyebrow": "Portofolio QA",
+    "title": "Bagaimana saya benar-benar menguji",
+    "soon": "Segera hadir",
+    "priority": "Prioritas",
+    "module": "Modul",
+    "steps": "Langkah",
+    "expected": "Hasil yang diharapkan",
+    "actual": "Hasil aktual",
+    "severity": "Severity",
+    "status": "Status",
+    "environment": "Environment",
+    "stepsToReproduce": "Langkah reproduksi",
+    "objective": "Objektif",
+    "inScope": "Ruang Lingkup",
+    "outScope": "Di Luar Lingkup",
+    "approach": "Pendekatan Pengujian",
+    "entryCriteria": "Kriteria Masuk",
+    "exitCriteria": "Kriteria Keluar",
+    "reqId": "ID Requirement",
+    "requirement": "Requirement",
+    "testCases": "Test Case",
+    "coverage": "Cakupan",
+    "covered": "Tercakup",
+    "partial": "Sebagian",
+    "notCovered": "Belum Tercakup",
+    "endpoint": "Endpoint",
+    "method": "Method",
+    "request": "Request Body",
+    "expectedResponse": "Response yang Diharapkan",
+    "query": "Query",
+    "purpose": "Tujuan",
+    "expectedResult": "Hasil yang Diharapkan",
+    "scenario": "Skenario",
+    "testLevels": "Level Pengujian",
+    "toolStack": "Tool Stack",
+    "automationRoadmap": "Roadmap Automation",
+    "checklist": "Checklist",
+    "lastRun": "Run Terakhir",
+    "total": "Total",
+    "passed": "Lolos",
+    "failed": "Gagal",
+    "blocked": "Blocked",
+    "sit": "System Integration Testing (SIT)",
+    "uat": "User Acceptance Testing (UAT)",
+    "signOff": "Sign-off UAT",
+    "project": "Proyek",
+    "stakeholder": "Stakeholder",
+    "date": "Tanggal",
+    "notes": "Catatan",
+    "phase": "Fase"
+  },
+  "projects": {
+    "eyebrow": "Proyek",
+    "title": "Hal yang saya bangun untuk berlatih"
+  },
+  "certificates": {
+    "eyebrow": "Sertifikat",
+    "title": "Kredensial"
+  }
+}

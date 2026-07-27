@@ -1,0 +1,37 @@
+[
+  {
+    "id": "cert-01",
+    "name": "ISTQB Certified Tester, Foundation Level (CTFL)",
+    "issuer": "ISTQB",
+    "date": "2023",
+    "category": { "en": "Testing Fundamentals", "id": "Fundamental Testing" }
+  },
+  {
+    "id": "cert-02",
+    "name": "Postman API Fundamentals Student Expert",
+    "issuer": "Postman",
+    "date": "2024",
+    "category": { "en": "API Testing", "id": "API Testing" }
+  },
+  {
+    "id": "cert-03",
+    "name": "Selenium WebDriver with Java — Basic to Advanced",
+    "issuer": "Independent Course Provider",
+    "date": "2024",
+    "category": { "en": "Automation", "id": "Automation" }
+  },
+  {
+    "id": "cert-04",
+    "name": "SQL for Data Analysis",
+    "issuer": "Independent Course Provider",
+    "date": "2022",
+    "category": { "en": "Database", "id": "Database" }
+  },
+  {
+    "id": "cert-05",
+    "name": "Agile Foundations",
+    "issuer": "Independent Course Provider",
+    "date": "2021",
+    "category": { "en": "Methodology", "id": "Metodologi" }
+  }
+]

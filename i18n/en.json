@@ -1,0 +1,93 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "skills": "Skills",
+    "portfolio": "QA Portfolio",
+    "projects": "Projects",
+    "certificates": "Certificates",
+    "learning": "Learning Journey",
+    "resume": "Resume",
+    "contact": "Contact"
+  },
+  "hero": {
+    "eyebrow": "Currently open to new opportunities",
+    "ctaPrimary": "View QA Portfolio",
+    "ctaSecondary": "Download Resume",
+    "panelTitle": "test-run — kevin.qa",
+    "panelFooter": "4 passed, 0 failed"
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "How I approach quality"
+  },
+  "experience": {
+    "eyebrow": "Experience",
+    "title": "Where I've worked",
+    "currentBadge": "Current"
+  },
+  "skills": {
+    "eyebrow": "Skills",
+    "title": "What I work with"
+  },
+  "portfolio": {
+    "eyebrow": "QA Portfolio",
+    "title": "How I actually test",
+    "soon": "Coming soon",
+    "priority": "Priority",
+    "module": "Module",
+    "steps": "Steps",
+    "expected": "Expected result",
+    "actual": "Actual result",
+    "severity": "Severity",
+    "status": "Status",
+    "environment": "Environment",
+    "stepsToReproduce": "Steps to reproduce",
+    "objective": "Objective",
+    "inScope": "In Scope",
+    "outScope": "Out of Scope",
+    "approach": "Test Approach",
+    "entryCriteria": "Entry Criteria",
+    "exitCriteria": "Exit Criteria",
+    "reqId": "Req. ID",
+    "requirement": "Requirement",
+    "testCases": "Test Case(s)",
+    "coverage": "Coverage",
+    "covered": "Covered",
+    "partial": "Partial",
+    "notCovered": "Not Covered",
+    "endpoint": "Endpoint",
+    "method": "Method",
+    "request": "Request Body",
+    "expectedResponse": "Expected Response",
+    "query": "Query",
+    "purpose": "Purpose",
+    "expectedResult": "Expected Result",
+    "scenario": "Scenario",
+    "testLevels": "Test Levels",
+    "toolStack": "Tool Stack",
+    "automationRoadmap": "Automation Roadmap",
+    "checklist": "Checklist",
+    "lastRun": "Last Run",
+    "total": "Total",
+    "passed": "Passed",
+    "failed": "Failed",
+    "blocked": "Blocked",
+    "sit": "System Integration Testing (SIT)",
+    "uat": "User Acceptance Testing (UAT)",
+    "signOff": "UAT Sign-off",
+    "project": "Project",
+    "stakeholder": "Stakeholder",
+    "date": "Date",
+    "notes": "Notes",
+    "phase": "Phase"
+  },
+  "projects": {
+    "eyebrow": "Projects",
+    "title": "Things I've built to practice"
+  },
+  "certificates": {
+    "eyebrow": "Certificates",
+    "title": "Credentials"
+  }
+}

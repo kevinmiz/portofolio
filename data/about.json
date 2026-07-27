@@ -1,0 +1,32 @@
+{
+  "bio": {
+    "en": [
+      "I'm a QA Engineer who treats quality as a design problem, not an afterthought. Most of my work happens before a single test is executed: reading requirements closely, asking what could go wrong, and deciding what \"done\" actually has to prove.",
+      "I've spent my career across fintech and trading-adjacent products, where a missed edge case isn't just a bug — it's money moving incorrectly. That context shaped how I test: methodically, with traceability, and with a healthy suspicion of the happy path.",
+      "Outside structured testing, I'm building automation skills deliberately — not to replace judgment, but to free it up for the parts of QA that still need a human."
+    ],
+    "id": [
+      "Saya adalah QA Engineer yang memperlakukan kualitas sebagai masalah desain, bukan renungan di akhir. Sebagian besar pekerjaan saya terjadi sebelum satu test pun dijalankan: membaca requirement dengan teliti, bertanya apa yang bisa salah, dan menentukan apa yang sebenarnya harus dibuktikan oleh kata \"selesai\".",
+      "Saya banyak berkarier di produk fintech dan yang berdekatan dengan trading, di mana edge case yang terlewat bukan sekadar bug — melainkan uang yang berpindah secara salah. Konteks itu membentuk cara saya menguji: metodis, dengan traceability, dan cukup curiga terhadap happy path.",
+      "Di luar pengujian terstruktur, saya membangun kemampuan automation secara sengaja — bukan untuk menggantikan judgment, tapi untuk membebaskannya bagi bagian QA yang masih membutuhkan sentuhan manusia."
+    ]
+  },
+  "quickFacts": [
+    {
+      "label": { "en": "Based in", "id": "Berdomisili di" },
+      "value": { "en": "Indonesia", "id": "Indonesia" }
+    },
+    {
+      "label": { "en": "Focus", "id": "Fokus" },
+      "value": { "en": "Manual & Functional Testing, Test Strategy", "id": "Manual & Functional Testing, Test Strategy" }
+    },
+    {
+      "label": { "en": "Domain experience", "id": "Pengalaman domain" },
+      "value": { "en": "Fintech & Trading Systems", "id": "Fintech & Trading Systems" }
+    },
+    {
+      "label": { "en": "Currently learning", "id": "Sedang dipelajari" },
+      "value": { "en": "Test Automation, API Testing", "id": "Test Automation, API Testing" }
+    }
+  ]
+}

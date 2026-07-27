@@ -1,0 +1,430 @@
+{
+  "categories": [
+    { "key": "test-cases", "label": { "en": "Test Cases", "id": "Test Case" }, "status": "available" },
+    { "key": "bug-reports", "label": { "en": "Bug Reports", "id": "Bug Report" }, "status": "available" },
+    { "key": "test-scenarios", "label": { "en": "Test Scenarios", "id": "Test Scenario" }, "status": "available" },
+    { "key": "test-plan", "label": { "en": "Test Plan", "id": "Test Plan" }, "status": "available" },
+    { "key": "rtm", "label": { "en": "Traceability Matrix", "id": "Traceability Matrix" }, "status": "available" },
+    { "key": "api-testing", "label": { "en": "API Testing", "id": "API Testing" }, "status": "available" },
+    { "key": "sql-validation", "label": { "en": "SQL Validation", "id": "SQL Validation" }, "status": "available" },
+    { "key": "strategy", "label": { "en": "Testing Strategy", "id": "Testing Strategy" }, "status": "available" },
+    { "key": "regression", "label": { "en": "Regression Testing", "id": "Regression Testing" }, "status": "available" },
+    { "key": "smoke", "label": { "en": "Smoke Testing", "id": "Smoke Testing" }, "status": "available" },
+    { "key": "sit-uat", "label": { "en": "SIT & UAT", "id": "SIT & UAT" }, "status": "available" },
+    { "key": "production", "label": { "en": "Production Verification", "id": "Verifikasi Produksi" }, "status": "available" },
+    { "key": "lifecycle", "label": { "en": "Testing Lifecycle", "id": "Testing Lifecycle" }, "status": "available" },
+    { "key": "agile", "label": { "en": "Agile Workflow", "id": "Agile Workflow" }, "status": "available" }
+  ],
+  "note": {
+    "en": "All examples below use fictional data for a simplified trading system. No real company or production data is shown.",
+    "id": "Semua contoh di bawah menggunakan data fiktif untuk sistem trading yang disederhanakan. Tidak ada data perusahaan atau produksi asli yang ditampilkan."
+  },
+  "testCases": [
+    {
+      "id": "TC-101",
+      "module": "Order Entry",
+      "title": { "en": "Submit a valid limit buy order", "id": "Mengirim limit buy order yang valid" },
+      "priority": "High",
+      "steps": {
+        "en": [
+          "Log in as an active trading user",
+          "Navigate to Order Entry",
+          "Select instrument 'ABC', order type 'Limit', side 'Buy'",
+          "Enter quantity 100 and price 1,250",
+          "Submit the order"
+        ],
+        "id": [
+          "Login sebagai user trading aktif",
+          "Buka halaman Order Entry",
+          "Pilih instrumen 'ABC', tipe order 'Limit', sisi 'Buy'",
+          "Masukkan quantity 100 dan harga 1.250",
+          "Kirim order"
+        ]
+      },
+      "expected": {
+        "en": "Order appears in the order book with status 'Open' and correct price/quantity",
+        "id": "Order muncul di order book dengan status 'Open' dan harga/quantity yang benar"
+      }
+    },
+    {
+      "id": "TC-108",
+      "module": "Amend",
+      "title": { "en": "Amend quantity of an open order", "id": "Mengubah quantity pada order yang masih open" },
+      "priority": "High",
+      "steps": {
+        "en": [
+          "Open an existing order with status 'Open'",
+          "Select 'Amend'",
+          "Change quantity from 100 to 150",
+          "Confirm the amendment"
+        ],
+        "id": [
+          "Buka order yang sudah ada dengan status 'Open'",
+          "Pilih 'Amend'",
+          "Ubah quantity dari 100 menjadi 150",
+          "Konfirmasi perubahan"
+        ]
+      },
+      "expected": {
+        "en": "Order book reflects the new quantity while preserving original order ID and time priority rules",
+        "id": "Order book menampilkan quantity baru dengan tetap mempertahankan ID order asli dan aturan time priority"
+      }
+    },
+    {
+      "id": "TC-119",
+      "module": "Cancel",
+      "title": { "en": "Cancel an unfilled order", "id": "Membatalkan order yang belum ter-fill" },
+      "priority": "Medium",
+      "steps": {
+        "en": [
+          "Open an existing order with status 'Open' and 0% filled",
+          "Select 'Cancel'",
+          "Confirm cancellation"
+        ],
+        "id": [
+          "Buka order yang berstatus 'Open' dengan 0% filled",
+          "Pilih 'Cancel'",
+          "Konfirmasi pembatalan"
+        ]
+      },
+      "expected": {
+        "en": "Order status changes to 'Cancelled' and it no longer matches against incoming orders",
+        "id": "Status order berubah menjadi 'Cancelled' dan tidak lagi ikut proses matching terhadap order masuk"
+      }
+    }
+  ],
+  "bugReports": [
+    {
+      "id": "BUG-231",
+      "title": { "en": "Amended order loses original time priority", "id": "Order yang di-amend kehilangan time priority asli" },
+      "severity": "High",
+      "status": "Open",
+      "environment": "Staging — Order Management System v2.4",
+      "stepsToReproduce": {
+        "en": [
+          "Place a limit buy order for instrument 'ABC' at 1,250",
+          "Place a second limit buy order at the same price from a different account",
+          "Amend the first order's quantity only (price unchanged)",
+          "Submit a matching sell order for the full quantity"
+        ],
+        "id": [
+          "Pasang limit buy order untuk instrumen 'ABC' di harga 1.250",
+          "Pasang limit buy order kedua di harga yang sama dari akun berbeda",
+          "Amend quantity pada order pertama saja (harga tidak berubah)",
+          "Kirim sell order yang cocok untuk quantity penuh"
+        ]
+      },
+      "expected": {
+        "en": "The first order should keep its original time priority, since only quantity changed and price stayed the same",
+        "id": "Order pertama seharusnya tetap mempertahankan time priority asli, karena hanya quantity yang berubah dan harga tidak berubah"
+      },
+      "actual": {
+        "en": "The first order is pushed behind the second order in the matching queue, causing the wrong order to be filled first",
+        "id": "Order pertama terdorong ke belakang order kedua dalam antrean matching, menyebabkan order yang salah ter-fill lebih dulu"
+      }
+    }
+  ],
+  "testPlan": {
+    "objective": {
+      "en": "Verify that the Order Management System correctly handles the full lifecycle of an order — entry, amendment, cancellation, and matching — without corrupting price/time priority or order state.",
+      "id": "Memverifikasi bahwa Order Management System menangani siklus hidup order dengan benar — entry, amendment, cancellation, dan matching — tanpa merusak price/time priority atau status order."
+    },
+    "inScope": {
+      "en": ["Order entry (market & limit)", "Order amendment", "Order cancellation", "Order matching engine", "Order book display"],
+      "id": ["Order entry (market & limit)", "Amandemen order", "Pembatalan order", "Mesin matching order", "Tampilan order book"]
+    },
+    "outScope": {
+      "en": ["Settlement & clearing", "Billing/invoicing", "Third-party market data feeds"],
+      "id": ["Settlement & clearing", "Billing/invoicing", "Feed data pasar pihak ketiga"]
+    },
+    "approach": {
+      "en": "A risk-based mix of manual functional testing for core order flows, SQL-based data validation for state consistency, and regression testing before every release. High-risk paths (amendment, matching) get exploratory testing on top of scripted cases.",
+      "id": "Kombinasi risk-based antara manual functional testing untuk alur order inti, validasi data berbasis SQL untuk konsistensi state, dan regression testing sebelum setiap rilis. Alur berisiko tinggi (amendment, matching) mendapat exploratory testing di atas test case terskrip."
+    },
+    "entryCriteria": {
+      "en": ["Build deployed to staging", "Test environment data seeded", "No open blocker bugs from previous cycle"],
+      "id": ["Build sudah di-deploy ke staging", "Data environment pengujian sudah tersedia", "Tidak ada blocker bug terbuka dari siklus sebelumnya"]
+    },
+    "exitCriteria": {
+      "en": ["100% of High priority test cases executed and passed", "No open High/Critical severity bugs", "RTM shows full coverage for in-scope requirements"],
+      "id": ["100% test case prioritas High dieksekusi dan lolos", "Tidak ada bug severity High/Critical yang terbuka", "RTM menunjukkan cakupan penuh untuk requirement yang in-scope"]
+    }
+  },
+  "rtm": [
+    { "reqId": "REQ-01", "requirement": { "en": "System shall accept valid limit orders", "id": "Sistem harus menerima limit order yang valid" }, "testCaseIds": ["TC-101"], "coverage": "covered" },
+    { "reqId": "REQ-02", "requirement": { "en": "System shall allow amending quantity without losing time priority when price is unchanged", "id": "Sistem harus mengizinkan amend quantity tanpa kehilangan time priority saat harga tidak berubah" }, "testCaseIds": ["TC-108"], "coverage": "partial" },
+    { "reqId": "REQ-03", "requirement": { "en": "System shall allow cancelling an unfilled order", "id": "Sistem harus mengizinkan pembatalan order yang belum ter-fill" }, "testCaseIds": ["TC-119"], "coverage": "covered" },
+    { "reqId": "REQ-04", "requirement": { "en": "System shall reject orders with invalid instrument codes", "id": "Sistem harus menolak order dengan kode instrumen tidak valid" }, "testCaseIds": [], "coverage": "not-covered" }
+  ],
+  "apiTests": [
+    {
+      "id": "API-01",
+      "endpoint": "/api/v1/orders",
+      "method": "POST",
+      "description": {
+        "en": "Create a new limit order and confirm it's accepted with correct fields echoed back",
+        "id": "Membuat limit order baru dan memastikan diterima dengan field yang benar dikembalikan"
+      },
+      "request": "{\n  \"instrument\": \"ABC\",\n  \"side\": \"BUY\",\n  \"type\": \"LIMIT\",\n  \"quantity\": 100,\n  \"price\": 1250\n}",
+      "expectedStatus": "201 Created",
+      "expectedNote": {
+        "en": "Response body includes a generated orderId and status: \"OPEN\"",
+        "id": "Response body menyertakan orderId yang ter-generate dan status: \"OPEN\""
+      }
+    },
+    {
+      "id": "API-02",
+      "endpoint": "/api/v1/orders/{orderId}",
+      "method": "PATCH",
+      "description": {
+        "en": "Amend an existing order's quantity",
+        "id": "Mengubah quantity pada order yang sudah ada"
+      },
+      "request": "{\n  \"quantity\": 150\n}",
+      "expectedStatus": "200 OK",
+      "expectedNote": {
+        "en": "Response reflects quantity: 150 while orderId and price remain unchanged",
+        "id": "Response menampilkan quantity: 150 sementara orderId dan price tetap tidak berubah"
+      }
+    },
+    {
+      "id": "API-03",
+      "endpoint": "/api/v1/orders",
+      "method": "POST",
+      "description": {
+        "en": "Submit an order with an invalid instrument code and confirm it's rejected",
+        "id": "Mengirim order dengan kode instrumen tidak valid dan memastikan ditolak"
+      },
+      "request": "{\n  \"instrument\": \"ZZZZ\",\n  \"side\": \"BUY\",\n  \"type\": \"LIMIT\",\n  \"quantity\": 100,\n  \"price\": 1250\n}",
+      "expectedStatus": "400 Bad Request",
+      "expectedNote": {
+        "en": "Response body contains an error code identifying the invalid instrument, no order is created",
+        "id": "Response body berisi kode error yang mengidentifikasi instrumen tidak valid, tidak ada order yang dibuat"
+      }
+    }
+  ],
+  "sqlChecks": [
+    {
+      "id": "SQL-01",
+      "purpose": {
+        "en": "Confirm an amended order's original creation timestamp is preserved (not overwritten on amend)",
+        "id": "Memastikan timestamp pembuatan asli dari order yang di-amend tetap terjaga (tidak tertimpa saat amend)"
+      },
+      "query": "SELECT order_id, created_at, updated_at, quantity\nFROM orders\nWHERE order_id = 'ORD-88213';",
+      "expectedResult": {
+        "en": "created_at stays fixed at the original submission time; only updated_at and quantity change after the amend",
+        "id": "created_at tetap sesuai waktu submit asli; hanya updated_at dan quantity yang berubah setelah amend"
+      }
+    },
+    {
+      "id": "SQL-02",
+      "purpose": {
+        "en": "Verify no orphaned order records exist after a cancellation (order removed from active book, retained in history)",
+        "id": "Memverifikasi tidak ada record order yatim setelah pembatalan (order dihapus dari active book, tetap ada di history)"
+      },
+      "query": "SELECT o.order_id\nFROM orders o\nLEFT JOIN order_history h ON o.order_id = h.order_id\nWHERE o.status = 'CANCELLED' AND h.order_id IS NULL;",
+      "expectedResult": {
+        "en": "Query returns zero rows — every cancelled order has a matching history record",
+        "id": "Query mengembalikan nol baris — setiap order yang dibatalkan memiliki record history yang sesuai"
+      }
+    }
+  ],
+  "testScenarios": [
+    {
+      "id": "SCN-01",
+      "module": "Order Entry",
+      "title": { "en": "Valid orders across all supported types", "id": "Order valid di seluruh tipe yang didukung" },
+      "description": {
+        "en": "Confirm the system correctly handles every combination of order type (market, limit) and side (buy, sell) with valid inputs.",
+        "id": "Memastikan sistem menangani dengan benar setiap kombinasi tipe order (market, limit) dan sisi (buy, sell) dengan input yang valid."
+      }
+    },
+    {
+      "id": "SCN-02",
+      "module": "Order Entry",
+      "title": { "en": "Boundary and invalid input handling", "id": "Penanganan boundary dan input tidak valid" },
+      "description": {
+        "en": "Confirm the system rejects zero/negative quantity, prices outside allowed tick size, and unknown instrument codes with clear error messages.",
+        "id": "Memastikan sistem menolak quantity nol/negatif, harga di luar tick size yang diizinkan, dan kode instrumen tidak dikenal dengan pesan error yang jelas."
+      }
+    },
+    {
+      "id": "SCN-03",
+      "module": "Amendment",
+      "title": { "en": "Amendment preserves order identity and priority rules", "id": "Amandemen mempertahankan identitas order dan aturan priority" },
+      "description": {
+        "en": "Confirm quantity-only amendments preserve time priority, while price amendments correctly re-queue the order per exchange rules.",
+        "id": "Memastikan amandemen quantity saja mempertahankan time priority, sementara amandemen harga meng-antre ulang order sesuai aturan exchange."
+      }
+    },
+    {
+      "id": "SCN-04",
+      "module": "Matching Engine",
+      "title": { "en": "Price-time priority under concurrent orders", "id": "Price-time priority di bawah order konkuren" },
+      "description": {
+        "en": "Confirm that when multiple orders share the same price, the earliest-submitted order fills first, even under high concurrent load.",
+        "id": "Memastikan ketika beberapa order memiliki harga sama, order yang lebih dulu dikirim ter-fill lebih dulu, bahkan di bawah beban konkuren tinggi."
+      }
+    },
+    {
+      "id": "SCN-05",
+      "module": "Order Book",
+      "title": { "en": "Order book reflects real-time state changes", "id": "Order book mencerminkan perubahan state secara real-time" },
+      "description": {
+        "en": "Confirm the visible order book updates within an acceptable latency window after any entry, amendment, cancellation, or fill.",
+        "id": "Memastikan order book yang terlihat ter-update dalam batas latensi yang dapat diterima setelah entry, amandemen, pembatalan, atau fill apa pun."
+      }
+    }
+  ],
+  "strategy": {
+    "approach": {
+      "en": "Testing is risk-based and shifts left wherever possible — I review requirements and designs before development finishes, so ambiguity surfaces as questions, not bugs. Test levels are layered rather than duplicated: developers own unit tests, I own system-level (SIT) and coordinate UAT with stakeholders.",
+      "id": "Pengujian bersifat risk-based dan shift-left sebisa mungkin — saya meninjau requirement dan desain sebelum development selesai, sehingga ambiguitas muncul sebagai pertanyaan, bukan bug. Level pengujian berlapis, bukan duplikat: developer memiliki unit test, saya memiliki system-level (SIT) dan mengoordinasikan UAT dengan stakeholder."
+    },
+    "testLevels": {
+      "en": [
+        "Unit Testing — owned by developers, verifies individual functions/components",
+        "System Integration Testing (SIT) — owned by QA, verifies modules work correctly together",
+        "User Acceptance Testing (UAT) — coordinated by QA, validated by business stakeholders",
+        "Production Verification — owned by QA, confirms the release behaves correctly in production"
+      ],
+      "id": [
+        "Unit Testing — dimiliki developer, memverifikasi fungsi/komponen individual",
+        "System Integration Testing (SIT) — dimiliki QA, memverifikasi modul bekerja dengan benar bersama-sama",
+        "User Acceptance Testing (UAT) — dikoordinasikan QA, divalidasi oleh stakeholder bisnis",
+        "Production Verification — dimiliki QA, memastikan rilis berperilaku benar di produksi"
+      ]
+    },
+    "toolStack": ["Jira", "Confluence", "Postman", "TestRail", "SQL Clients (DBeaver)", "Git"],
+    "automationRoadmap": {
+      "en": "Current coverage is manual-first, prioritized by risk. I'm deliberately building automation skills (Playwright, API test automation) to cover stable, high-repetition regression paths first — automating a flaky or still-changing flow just automates the wrong thing.",
+      "id": "Cakupan saat ini manual-first, diprioritaskan berdasarkan risiko. Saya sengaja membangun kemampuan automation (Playwright, API test automation) untuk mencakup alur regression yang stabil dan berulang tinggi terlebih dahulu — mengotomasi alur yang flaky atau masih berubah hanya mengotomasi hal yang salah."
+    }
+  },
+  "regression": {
+    "approach": {
+      "en": "Before every release, a fixed regression suite runs against core order flows to catch anything a new feature might have broken elsewhere. Suite size grows deliberately — a new bug's root cause becomes a new regression case, not just a one-off fix.",
+      "id": "Sebelum setiap rilis, regression suite tetap dijalankan terhadap alur order inti untuk menangkap hal yang mungkin rusak akibat fitur baru di tempat lain. Ukuran suite bertambah secara sengaja — root cause dari bug baru menjadi regression case baru, bukan sekadar perbaikan sekali pakai."
+    },
+    "checklist": {
+      "en": [
+        "Order entry across all types and sides",
+        "Amendment preserves correct priority behavior",
+        "Cancellation removes order from active book",
+        "Matching engine respects price-time priority",
+        "Order book UI reflects backend state accurately"
+      ],
+      "id": [
+        "Order entry di seluruh tipe dan sisi",
+        "Amandemen mempertahankan perilaku priority yang benar",
+        "Pembatalan menghapus order dari active book",
+        "Mesin matching menghormati price-time priority",
+        "UI order book mencerminkan state backend secara akurat"
+      ]
+    },
+    "lastRun": { "date": "2026-07-10", "total": 42, "passed": 40, "failed": 2, "blocked": 0 }
+  },
+  "smoke": {
+    "approach": {
+      "en": "Smoke tests are a short, critical-path checklist run immediately after any deployment — the goal is a fast go/no-go signal, not full coverage. If any of these fail, the release is rolled back before deeper testing even starts.",
+      "id": "Smoke test adalah checklist critical-path yang singkat, dijalankan segera setelah deployment apa pun — tujuannya adalah sinyal go/no-go yang cepat, bukan cakupan penuh. Jika salah satu ini gagal, rilis di-rollback sebelum pengujian lebih dalam dimulai."
+    },
+    "checklist": [
+      { "id": "SMK-01", "label": { "en": "User can log in successfully", "id": "User dapat login dengan berhasil" } },
+      { "id": "SMK-02", "label": { "en": "Order Entry page loads without errors", "id": "Halaman Order Entry termuat tanpa error" } },
+      { "id": "SMK-03", "label": { "en": "A test order can be placed successfully", "id": "Order uji coba dapat dipasang dengan berhasil" } },
+      { "id": "SMK-04", "label": { "en": "The placed order appears correctly in the order book", "id": "Order yang dipasang muncul dengan benar di order book" } },
+      { "id": "SMK-05", "label": { "en": "An open order can be cancelled successfully", "id": "Order yang masih open dapat dibatalkan dengan berhasil" } }
+    ]
+  },
+  "sitUat": {
+    "sitDescription": {
+      "en": "System Integration Testing verifies that modules — order entry, matching engine, order book — work correctly together end-to-end, before anything reaches business stakeholders. Owned entirely by QA.",
+      "id": "System Integration Testing memverifikasi bahwa modul — order entry, mesin matching, order book — bekerja dengan benar secara end-to-end, sebelum apa pun sampai ke stakeholder bisnis. Sepenuhnya dimiliki oleh QA."
+    },
+    "uatDescription": {
+      "en": "User Acceptance Testing confirms the system meets real business needs, executed by or with actual stakeholders using realistic scenarios rather than scripted technical cases.",
+      "id": "User Acceptance Testing memastikan sistem memenuhi kebutuhan bisnis yang sesungguhnya, dieksekusi oleh atau bersama stakeholder aktual menggunakan skenario realistis, bukan test case teknis yang terskrip."
+    },
+    "signOff": {
+      "project": "Order Management System v2.4",
+      "stakeholder": "Head of Trading Operations",
+      "date": "2026-07-14",
+      "status": "Approved with minor notes",
+      "notes": {
+        "en": "Approved for production release. One minor UI note logged as a low-priority backlog item — does not block release.",
+        "id": "Disetujui untuk rilis produksi. Satu catatan UI minor dicatat sebagai backlog item prioritas rendah — tidak menghalangi rilis."
+      }
+    }
+  },
+  "production": {
+    "approach": {
+      "en": "After deployment, a short verification pass runs directly against production — same intent as smoke testing, but confirming the real environment (not staging) behaves as expected before the release is considered complete.",
+      "id": "Setelah deployment, verifikasi singkat dijalankan langsung terhadap produksi — tujuan yang sama seperti smoke testing, namun memastikan environment yang sesungguhnya (bukan staging) berperilaku sesuai harapan sebelum rilis dianggap selesai."
+    },
+    "checklist": [
+      { "id": "PROD-01", "label": { "en": "Production login succeeds with no unexpected errors", "id": "Login produksi berhasil tanpa error yang tidak terduga" } },
+      { "id": "PROD-02", "label": { "en": "Order placement returns a successful response in production", "id": "Pemasangan order mengembalikan response berhasil di produksi" } },
+      { "id": "PROD-03", "label": { "en": "New order appears in the order book within expected latency", "id": "Order baru muncul di order book dalam latensi yang diharapkan" } },
+      { "id": "PROD-04", "label": { "en": "Monitoring dashboard shows no error-rate spike post-deploy", "id": "Dashboard monitoring tidak menunjukkan lonjakan error rate pasca-deploy" } }
+    ]
+  },
+  "lifecycle": {
+    "phases": [
+      {
+        "number": "01",
+        "title": { "en": "Requirement Analysis", "id": "Analisis Requirement" },
+        "description": { "en": "Review requirements for testability and ambiguity before development starts", "id": "Meninjau requirement untuk testability dan ambiguitas sebelum development dimulai" }
+      },
+      {
+        "number": "02",
+        "title": { "en": "Test Planning", "id": "Test Planning" },
+        "description": { "en": "Define scope, approach, entry/exit criteria, and resourcing for the test cycle", "id": "Menentukan scope, pendekatan, kriteria masuk/keluar, dan resourcing untuk siklus pengujian" }
+      },
+      {
+        "number": "03",
+        "title": { "en": "Test Case Development", "id": "Pengembangan Test Case" },
+        "description": { "en": "Write test cases and scenarios traced back to specific requirements", "id": "Menulis test case dan skenario yang ditelusuri kembali ke requirement spesifik" }
+      },
+      {
+        "number": "04",
+        "title": { "en": "Environment Setup", "id": "Environment Setup" },
+        "description": { "en": "Prepare and validate test data and environment configuration", "id": "Menyiapkan dan memvalidasi data pengujian dan konfigurasi environment" }
+      },
+      {
+        "number": "05",
+        "title": { "en": "Test Execution", "id": "Eksekusi Pengujian" },
+        "description": { "en": "Run planned test cases, log bugs, and re-verify fixes", "id": "Menjalankan test case yang direncanakan, mencatat bug, dan memverifikasi ulang perbaikan" }
+      },
+      {
+        "number": "06",
+        "title": { "en": "Test Closure", "id": "Penutupan Pengujian" },
+        "description": { "en": "Confirm exit criteria are met and document lessons learned for the next cycle", "id": "Memastikan kriteria keluar terpenuhi dan mendokumentasikan pembelajaran untuk siklus berikutnya" }
+      }
+    ]
+  },
+  "agile": {
+    "ceremonies": [
+      {
+        "name": { "en": "Backlog Refinement", "id": "Backlog Refinement" },
+        "qaRole": { "en": "Flag testability concerns and missing acceptance criteria before stories enter a sprint", "id": "Menandai concern testability dan kriteria penerimaan yang hilang sebelum story masuk sprint" }
+      },
+      {
+        "name": { "en": "Sprint Planning", "id": "Sprint Planning" },
+        "qaRole": { "en": "Estimate testing effort alongside development effort, not as an afterthought", "id": "Mengestimasi effort pengujian bersamaan dengan effort development, bukan sebagai renungan akhir" }
+      },
+      {
+        "name": { "en": "Daily Standup", "id": "Daily Standup" },
+        "qaRole": { "en": "Surface blockers early — an environment issue reported on day 1 is cheaper than one found on day 9", "id": "Mengangkat blocker sejak dini — masalah environment yang dilaporkan di hari 1 lebih murah daripada ditemukan di hari 9" }
+      },
+      {
+        "name": { "en": "Sprint Review", "id": "Sprint Review" },
+        "qaRole": { "en": "Demonstrate tested functionality with known limitations stated explicitly", "id": "Mendemonstrasikan fungsionalitas yang telah diuji dengan keterbatasan yang diketahui dinyatakan secara eksplisit" }
+      },
+      {
+        "name": { "en": "Retrospective", "id": "Retrospective" },
+        "qaRole": { "en": "Feed escaped bugs back into the process — asking why a test level missed it, not just who missed it", "id": "Memasukkan kembali bug yang lolos ke dalam proses — bertanya mengapa suatu level pengujian melewatkannya, bukan sekadar siapa yang melewatkannya" }
+      }
+    ]
+  }
+}

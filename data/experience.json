@@ -1,0 +1,59 @@
+[
+  {
+    "id": "exp-03",
+    "company": "Nirmala Trading Technologies",
+    "role": { "en": "QA Engineer", "id": "QA Engineer" },
+    "period": { "en": "2023 — Present", "id": "2023 — Sekarang" },
+    "current": true,
+    "achievements": {
+      "en": [
+        "Own end-to-end test strategy for an order management system covering order entry, amendment, cancellation, and matching",
+        "Built a requirement traceability matrix adopted across two squads to close gaps between PRDs and test coverage",
+        "Reduced production sign-off cycle by introducing a structured smoke + regression checklist run before every release"
+      ],
+      "id": [
+        "Bertanggung jawab atas strategi pengujian end-to-end untuk order management system yang mencakup order entry, amendment, cancellation, dan matching",
+        "Membangun requirement traceability matrix yang diadopsi oleh dua squad untuk menutup celah antara PRD dan cakupan pengujian",
+        "Mempersingkat siklus sign-off produksi dengan memperkenalkan checklist smoke + regression terstruktur sebelum setiap rilis"
+      ]
+    }
+  },
+  {
+    "id": "exp-02",
+    "company": "Cakrawala Fintech Indonesia",
+    "role": { "en": "QA Engineer", "id": "QA Engineer" },
+    "period": { "en": "2021 — 2023", "id": "2021 — 2023" },
+    "current": false,
+    "achievements": {
+      "en": [
+        "Designed and executed test plans for payment and wallet features across web and mobile",
+        "Validated data integrity between application layer and database using SQL for reconciliation-critical flows",
+        "Collaborated with developers in an Agile workflow, writing test scenarios directly from user stories during refinement"
+      ],
+      "id": [
+        "Merancang dan menjalankan test plan untuk fitur pembayaran dan wallet di web maupun mobile",
+        "Memvalidasi integritas data antara application layer dan database menggunakan SQL untuk alur yang krusial bagi rekonsiliasi",
+        "Berkolaborasi dengan developer dalam Agile workflow, menulis test scenario langsung dari user story saat refinement"
+      ]
+    }
+  },
+  {
+    "id": "exp-01",
+    "company": "Bintang Digital Solutions",
+    "role": { "en": "Junior QA / Manual Tester", "id": "Junior QA / Manual Tester" },
+    "period": { "en": "2020 — 2021", "id": "2020 — 2021" },
+    "current": false,
+    "achievements": {
+      "en": [
+        "Wrote and executed manual test cases for internal web applications",
+        "Logged and tracked bugs through their full lifecycle, working closely with developers on reproduction steps",
+        "Learned the fundamentals of SIT and UAT by supporting senior QA engineers during release cycles"
+      ],
+      "id": [
+        "Menulis dan menjalankan test case manual untuk aplikasi web internal",
+        "Mencatat dan melacak bug sepanjang siklus hidupnya, bekerja sama dengan developer terkait langkah reproduksi",
+        "Mempelajari dasar-dasar SIT dan UAT dengan mendukung QA engineer senior selama siklus rilis"
+      ]
+    }
+  }
+]

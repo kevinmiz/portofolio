@@ -1,0 +1,41 @@
+{
+  "name": "Kevin Muhamad Iqbal Zarkasyi",
+  "role": {
+    "en": "Software Quality Assurance Engineer",
+    "id": "Software Quality Assurance Engineer"
+  },
+  "summary": {
+    "en": "I break systems on purpose, before real users do. I design test strategies, trace requirements to evidence, and turn ambiguity into verifiable, repeatable checks.",
+    "id": "Saya menguji sistem secara sengaja, sebelum pengguna sesungguhnya menemukan masalahnya. Saya merancang strategi pengujian, menelusuri requirement hingga ke bukti, dan mengubah ambiguitas menjadi pengujian yang terverifikasi dan repeatable."
+  },
+  "heroChecks": [
+    {
+      "id": "TC-014",
+      "label": {
+        "en": "Requirements traced to test cases",
+        "id": "Requirement ditelusuri ke test case"
+      }
+    },
+    {
+      "id": "TC-032",
+      "label": {
+        "en": "Edge cases identified and covered",
+        "id": "Edge case teridentifikasi dan tercakup"
+      }
+    },
+    {
+      "id": "REG-008",
+      "label": {
+        "en": "Regression suite passing",
+        "id": "Regression suite berjalan lancar"
+      }
+    },
+    {
+      "id": "UAT-003",
+      "label": {
+        "en": "Sign-off ready for production",
+        "id": "Siap sign-off untuk produksi"
+      }
+    }
+  ]
+}

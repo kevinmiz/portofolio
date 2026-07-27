@@ -1,0 +1,204 @@
+<!--
+  index.html
+  ==========
+  PURPOSE: The single HTML page the whole site lives on (a
+  single-page site is simpler to maintain and faster to load than
+  multiple pages, and fits a personal branding site well).
+
+  WHY IT EXISTS: This is the structural skeleton — semantic sections,
+  nav links, and elements marked with data-field / data-i18n
+  attributes that js/i18n.js and js/data-loader.js fill in at runtime.
+
+  HOW TO MODIFY:
+    - To reorder sections, move the whole <section> block — CSS and
+      JS don't depend on section order.
+    - To add a new section (Phase 2+), copy the pattern of an
+      existing <section id="..."> block, add a nav link with a
+      matching href="#id", and add data-i18n attributes for any
+      static labels.
+    - Never hardcode text that already has a JSON home (see
+      data/profile.json and i18n/en.json + id.json) — add a new key
+      there instead.
+
+  STATUS: Phase 1 — Nav + Hero are wired to real data. Sections below
+  the hero are empty placeholders reserved for Phase 2 onward.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kevin Muhamad Iqbal Zarkasyi — Software QA Engineer</title>
+  <meta name="description" content="Kevin Muhamad Iqbal Zarkasyi — Software Quality Assurance Engineer. Test strategy, automation, and quality engineering portfolio." />
+
+  <!-- Fonts: Space Grotesk (display), Inter (body), IBM Plex Mono (data/code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Primary">
+      <span class="nav__brand mono">kevin.qa</span>
+
+      <ul class="nav__links">
+        <li><a href="#about" data-i18n="nav.about">About</a></li>
+        <li><a href="#experience" data-i18n="nav.experience">Experience</a></li>
+        <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+        <li><a href="#portfolio" data-i18n="nav.portfolio">QA Portfolio</a></li>
+        <li><a href="#projects" data-i18n="nav.projects">Projects</a></li>
+        <li><a href="#certificates" data-i18n="nav.certificates">Certificates</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+
+      <div class="nav__controls">
+        <div class="lang-switch" role="group" aria-label="Language switch">
+          <button type="button" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang="id" aria-pressed="false">ID</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero container" id="home">
+      <div class="hero__grid">
+        <div class="hero__copy">
+          <span class="hero__eyebrow">
+            <span class="dot" aria-hidden="true"></span>
+            <span data-i18n="hero.eyebrow">Currently open to new opportunities</span>
+          </span>
+
+          <h1 class="hero__title">
+            <span data-field="name">Kevin Muhamad Iqbal Zarkasyi</span><br />
+            <span class="accent" data-field="role">Software Quality Assurance Engineer</span>
+          </h1>
+
+          <p class="hero__subtitle" data-field="summary">
+            I break systems on purpose, before real users do.
+          </p>
+
+          <div class="hero__actions">
+            <a href="#portfolio" class="btn btn--primary" data-i18n="hero.ctaPrimary">View QA Portfolio</a>
+            <a href="docs/resume.pdf" class="btn btn--secondary" data-i18n="hero.ctaSecondary">Download Resume</a>
+          </div>
+        </div>
+
+        <div class="hero__panel">
+          <div class="test-panel" role="img" aria-label="Illustrative test run summary showing four passed checks">
+            <div class="test-panel__header">
+              <span data-i18n="hero.panelTitle">test-run — kevin.qa</span>
+              <div class="test-panel__dots" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="test-panel__body" data-field="test-panel-rows">
+              <!-- Rows injected by js/data-loader.js from data/profile.json -->
+            </div>
+            <div class="test-panel__footer mono">
+              <span data-i18n="hero.panelFooter">4 passed, 0 failed</span>
+              <span>100%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="container section">
+      <div class="section__heading">
+        <span class="eyebrow mono" data-i18n="about.eyebrow">About</span>
+        <h2 data-i18n="about.title">How I approach quality</h2>
+      </div>
+
+      <div class="about__grid">
+        <div class="about__bio" data-field="about-bio">
+          <!-- Bio paragraphs injected from data/about.json -->
+        </div>
+        <dl class="about__facts" data-field="about-facts">
+          <!-- Quick facts injected from data/about.json -->
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section id="experience" class="container section">
+      <div class="section__heading">
+        <span class="eyebrow mono" data-i18n="experience.eyebrow">Experience</span>
+        <h2 data-i18n="experience.title">Where I've worked</h2>
+      </div>
+
+      <div class="timeline" data-field="experience-list">
+        <!-- Timeline entries injected from data/experience.json -->
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section id="skills" class="container section">
+      <div class="section__heading">
+        <span class="eyebrow mono" data-i18n="skills.eyebrow">Skills</span>
+        <h2 data-i18n="skills.title">What I work with</h2>
+      </div>
+
+      <div class="skills-grid" data-field="skills-grid">
+        <!-- Categories injected from data/skills.json -->
+      </div>
+    </section>
+
+    <!-- ============ QA PORTFOLIO ============ -->
+    <section id="portfolio" class="container section">
+      <div class="section__heading">
+        <span class="eyebrow mono" data-i18n="portfolio.eyebrow">QA Portfolio</span>
+        <h2 data-i18n="portfolio.title">How I actually test</h2>
+      </div>
+
+      <div class="portfolio-tabs" data-field="portfolio-tabs" role="tablist">
+        <!-- Tab buttons injected from data/qa-portfolio.json -->
+      </div>
+
+      <div class="portfolio-panel" data-field="portfolio-panel" role="tabpanel">
+        <!-- Active tab's content injected here -->
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section id="projects" class="container section">
+      <div class="section__heading">
+        <span class="eyebrow mono" data-i18n="projects.eyebrow">Projects</span>
+        <h2 data-i18n="projects.title">Things I've built to practice</h2>
+      </div>
+
+      <div class="projects-grid" data-field="projects-grid">
+        <!-- Projects injected from data/projects.json -->
+      </div>
+    </section>
+
+    <!-- ============ CERTIFICATES ============ -->
+    <section id="certificates" class="container section">
+      <div class="section__heading">
+        <span class="eyebrow mono" data-i18n="certificates.eyebrow">Certificates</span>
+        <h2 data-i18n="certificates.title">Credentials</h2>
+      </div>
+
+      <div class="certificates-grid" data-field="certificates-grid">
+        <!-- Certificates injected from data/certificates.json -->
+      </div>
+    </section>
+
+    <!-- ============ Placeholder sections — built in later phases ============ -->
+    <section id="learning" class="container"></section>
+    <section id="resume" class="container"></section>
+    <section id="contact" class="container"></section>
+  </main>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/data-loader.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+[
+  {
+    "id": "proj-01",
+    "title": { "en": "Test Automation Suite for a Demo E-commerce Site", "id": "Test Automation Suite untuk Situs E-commerce Demo" },
+    "type": "Automation",
+    "tools": ["Playwright", "JavaScript", "GitHub Actions"],
+    "description": {
+      "en": "A self-directed project to build hands-on automation skill: an automated regression suite covering login, cart, and checkout flows on a public demo storefront, wired to run on every push via GitHub Actions.",
+      "id": "Proyek mandiri untuk membangun kemampuan automation secara langsung: regression suite otomatis yang mencakup alur login, cart, dan checkout pada demo storefront publik, terhubung untuk berjalan di setiap push melalui GitHub Actions."
+    },
+    "linkLabel": { "en": "View repository", "id": "Lihat repository" }
+  },
+  {
+    "id": "proj-02",
+    "title": { "en": "API Test Collection for a Public REST API", "id": "Koleksi API Test untuk REST API Publik" },
+    "type": "API Testing",
+    "tools": ["Postman", "Newman", "JSON Schema Validation"],
+    "description": {
+      "en": "A Postman collection with scripted assertions (status codes, schema validation, response time) against a public weather API, runnable from the command line with Newman for quick CI-style checks.",
+      "id": "Koleksi Postman dengan assertion terskrip (status code, validasi schema, response time) terhadap API cuaca publik, dapat dijalankan dari command line dengan Newman untuk pengecekan cepat bergaya CI."
+    },
+    "linkLabel": { "en": "View collection", "id": "Lihat koleksi" }
+  },
+  {
+    "id": "proj-03",
+    "title": { "en": "Structured Bug Reporting Practice on an Intentionally Buggy App", "id": "Latihan Bug Reporting Terstruktur pada Aplikasi yang Sengaja Memiliki Bug" },
+    "type": "Manual Testing",
+    "tools": ["Exploratory Testing", "Jira-style Reporting"],
+    "description": {
+      "en": "Used a publicly available practice application (designed for testers to find intentional functional bugs) to sharpen exploratory testing and bug-report writing — each finding documented with clear repro steps, expected vs. actual, and severity.",
+      "id": "Menggunakan aplikasi latihan yang tersedia untuk publik (dirancang agar tester menemukan bug fungsional yang disengaja) untuk mengasah exploratory testing dan penulisan bug report — setiap temuan didokumentasikan dengan langkah reproduksi yang jelas, expected vs. actual, dan severity."
+    },
+    "linkLabel": { "en": "View sample reports", "id": "Lihat contoh laporan" }
+  }
+]

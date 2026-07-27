@@ -1,0 +1,46 @@
+[
+  {
+    "key": "testing",
+    "label": { "en": "Testing", "id": "Testing" },
+    "items": [
+      "Manual Testing", "Functional Testing", "Regression Testing",
+      "Smoke Testing", "Exploratory Testing", "SIT", "UAT",
+      "Test Case Design"
+    ]
+  },
+  {
+    "key": "database",
+    "label": { "en": "Database", "id": "Database" },
+    "items": [
+      "SQL (PostgreSQL, MySQL)", "Data Validation", "Query-based Verification"
+    ]
+  },
+  {
+    "key": "tools",
+    "label": { "en": "Tools", "id": "Tools" },
+    "items": [
+      "Jira", "Postman", "TestRail", "Confluence", "Git", "Chrome DevTools"
+    ]
+  },
+  {
+    "key": "methodology",
+    "label": { "en": "Methodology", "id": "Metodologi" },
+    "items": [
+      "Agile / Scrum", "STLC", "Requirement Traceability", "Risk-based Testing"
+    ]
+  },
+  {
+    "key": "cloud",
+    "label": { "en": "Cloud", "id": "Cloud" },
+    "items": [
+      "AWS Fundamentals", "Log & Monitoring Dashboards"
+    ]
+  },
+  {
+    "key": "learning",
+    "label": { "en": "Currently Learning", "id": "Sedang Dipelajari" },
+    "items": [
+      "Playwright", "API Test Automation", "CI/CD Fundamentals"
+    ]
+  }
+]

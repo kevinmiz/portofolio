@@ -1,0 +1,91 @@
+/*
+  variables.css
+  =============
+  PURPOSE: The single source of truth for the site's design tokens —
+  colors, fonts, spacing, and timing. Every other CSS file reads from
+  these variables instead of hardcoding values.
+
+  WHY IT EXISTS: If you want to nudge the accent color, change a font,
+  or introduce a light theme later, you edit values HERE ONCE instead
+  of hunting through every CSS file. This is what makes the site
+  maintainable for years, not just for the next six months.
+
+  HOW TO MODIFY: Change a value on the right of a ":" — never rename
+  the variable itself (the name is used everywhere else). Colors are
+  grouped by role (background / text / accent) rather than by literal
+  name, so "what does this do" is always clear from the variable name.
+*/
+
+:root {
+  /* ---- Color: surfaces ---- */
+  --color-bg: #0A0C10;           /* page background, near-black not pure black */
+  --color-surface: #12151B;      /* cards, panels, nav background */
+  --color-surface-raised: #181C24; /* hover state / elevated panels */
+  --color-border: #232830;       /* hairline borders, dividers */
+
+  /* ---- Color: text ---- */
+  --color-text-primary: #E6E8EB;
+  --color-text-secondary: #8B93A1;
+  --color-text-muted: #5C6472;
+
+  /* ---- Color: semantic accents ----
+     These map to real QA states — use them for what they mean,
+     not as decoration. */
+  --color-verified: #2ECC8F;     /* "passed" / verified / success */
+  --color-verified-dim: rgba(46, 204, 143, 0.12); /* soft bg for verified badges */
+  --color-progress: #5B8DEF;     /* links, in-progress, informational */
+  --color-progress-dim: rgba(91, 141, 239, 0.12);
+  --color-critical: #E5484D;     /* bug/fail states ONLY — never use for style */
+  --color-critical-dim: rgba(229, 72, 77, 0.12);
+
+  /* ---- Typography ---- */
+  --font-display: 'Space Grotesk', -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SF Mono', monospace;
+
+  --fs-hero: clamp(2.5rem, 5vw + 1rem, 4.25rem);
+  --fs-h1: clamp(2rem, 3vw + 1rem, 3rem);
+  --fs-h2: clamp(1.5rem, 2vw + 1rem, 2.25rem);
+  --fs-h3: 1.25rem;
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-mono: 0.9rem;
+
+  --lh-tight: 1.15;
+  --lh-normal: 1.6;
+
+  /* ---- Spacing scale (8px base unit) ---- */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 4rem;
+  --space-7: 6rem;
+  --space-8: 8rem;
+
+  /* ---- Layout ---- */
+  --max-width: 1120px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* ---- Motion ---- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 600ms;
+}
+
+/* ---- Optional light theme ----
+   Toggled by adding data-theme="light" to <html> via JS (Phase 3).
+   Left here now so the token system is future-proof from day one. */
+[data-theme="light"] {
+  --color-bg: #FAFAFA;
+  --color-surface: #FFFFFF;
+  --color-surface-raised: #F2F3F5;
+  --color-border: #E3E5E8;
+  --color-text-primary: #14171C;
+  --color-text-secondary: #4B5563;
+  --color-text-muted: #8A93A1;
+}
